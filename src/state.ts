@@ -6,6 +6,7 @@ export const marvelousStateMgr = defineState({
   initialState: (age: number | Signal<number>, name: string) => ({
     age,
     name: name ?? 'Strange',
+    friendsAge: new TickSignal(41),
   }),
   computed: {
     birthdayInfo: (state) => `${state.name} is ${state.age} years old`,
@@ -21,9 +22,10 @@ export const marvelousStateMgr = defineState({
 });
 
 class TickSignal extends SignalBaseClass<number> {
-  value = 0;
-  constructor() {
+  value: number;
+  constructor(_value: number = 0) {
     super();
+    this.value = _value;
     setInterval(() => {
       this.value += 1;
       this.notify();
