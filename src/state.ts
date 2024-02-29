@@ -11,7 +11,7 @@ export const marvelousStateMgr = defineState({
     birthdayInfo: (state) => `${state.name} is ${state.age} years old`,
   },
   actions: {
-    celebrateBirthday: (state, num) => {
+    celebrateBirthday: (state, num?: number) => {
       state.age += num ?? 1;
     },
     graduate: (state) => {
