@@ -1,10 +1,10 @@
 import { LightningElement } from 'lwc';
-import { marvelousStateMgr, tickSignal } from '../../../state.ts';
+import { marvelousStateMgrFactory, tickSignal } from '../../../state.ts';
 
 export default class App extends LightningElement {
   secondsSinceRender = tickSignal();
-  blue = marvelousStateMgr(this.secondsSinceRender);
-  green = marvelousStateMgr(32, 'Banner');
+  blue = marvelousStateMgrFactory(this.secondsSinceRender);
+  green = marvelousStateMgrFactory(32, 'Banner');
 
   clickBlue() {
     this.blue.value.graduate();
