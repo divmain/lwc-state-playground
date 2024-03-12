@@ -13,7 +13,7 @@ class PromiseSignal<T extends { newVal: any }> extends SignalBaseClass<T> {
   }
 }
 
-function promiseAsSignal<T>(p: Promise<T>): Signal<T | undefined> {
+function promiseAsSignal<T extends { newVal: any }>(p: Promise<T>): Signal<T | undefined> {
   return new PromiseSignal<T>(p);
 }
 
